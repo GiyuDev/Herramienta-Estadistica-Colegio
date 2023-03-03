@@ -20,6 +20,7 @@ public class Main_Frame extends JFrame {
         this.rangeField.setEditable(false);
         this.frecuencyArea.setEditable(false);
         this.orderArea.setEditable(false);
+        this.totalFrecuencyLabel.setEditable(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -42,6 +43,8 @@ public class Main_Frame extends JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         orderArea = new javax.swing.JTextArea();
         clearButton = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        totalFrecuencyLabel = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +88,8 @@ public class Main_Frame extends JFrame {
             }
         });
 
+        jLabel6.setText("Suma de las frecuencias: ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -112,8 +117,13 @@ public class Main_Frame extends JFrame {
                                 .addGap(10, 10, 10)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(rangeField, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 542, Short.MAX_VALUE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rangeField, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(117, 117, 117)
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(totalFrecuencyLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 214, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -154,7 +164,9 @@ public class Main_Frame extends JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rangeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(clearButton))
+                    .addComponent(clearButton)
+                    .addComponent(jLabel6)
+                    .addComponent(totalFrecuencyLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -220,6 +232,12 @@ public class Main_Frame extends JFrame {
                     this.frecuencyArea.setText(frecuency_string);
                     this.valuesArea.setEditable(false);
                     this.calculateButton.setEnabled(false);
+                    
+                    int total_frecuency = 0;
+                    for (int i : frecuency_map.values()) {
+                        total_frecuency += i;
+                    }
+                    this.totalFrecuencyLabel.setText(String.valueOf(total_frecuency));
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, "Numero no valido", "Se ha introducido un elemento que no se reconoce como numero", JOptionPane.ERROR_MESSAGE);
                 }
@@ -232,6 +250,7 @@ public class Main_Frame extends JFrame {
         this.frecuencyArea.setText("");
         this.rangeField.setText("");
         this.orderArea.setText("");
+        this.totalFrecuencyLabel.setText("");
         this.valuesArea.setEditable(true);
         this.calculateButton.setEnabled(true);
     }//GEN-LAST:event_clearButtonActionPerformed
@@ -248,11 +267,13 @@ public class Main_Frame extends JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea orderArea;
     private javax.swing.JTextField rangeField;
+    private javax.swing.JTextField totalFrecuencyLabel;
     private javax.swing.JTextArea valuesArea;
     // End of variables declaration//GEN-END:variables
 
