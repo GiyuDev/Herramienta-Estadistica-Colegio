@@ -238,6 +238,9 @@ public class Main_Frame extends JFrame {
                         total_frecuency += i;
                     }
                     this.totalFrecuencyLabel.setText(String.valueOf(total_frecuency));
+                    
+                    this.ascentOrder.setEnabled(false);
+                    this.DecreementOrder.setEnabled(false);
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, "Numero no valido", "Se ha introducido un elemento que no se reconoce como numero", JOptionPane.ERROR_MESSAGE);
                 }
@@ -253,6 +256,8 @@ public class Main_Frame extends JFrame {
         this.totalFrecuencyLabel.setText("");
         this.valuesArea.setEditable(true);
         this.calculateButton.setEnabled(true);
+        this.ascentOrder.setEnabled(true);
+        this.DecreementOrder.setEnabled(true);
     }//GEN-LAST:event_clearButtonActionPerformed
 
 
